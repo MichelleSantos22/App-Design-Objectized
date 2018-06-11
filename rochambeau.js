@@ -1,56 +1,63 @@
-/*Represents a player
- */
-function Player(){
+/*Represents a player*/
+function Player() {
     this.choice = null;
 }
 
-var player = new Player();
-var computer = new Player();
+/*The game of Rochambeau!*/
+var Rochambeau = {
 
-/*Represents the choices
- */
-var choices  = {
-    ROCK: 0,
-    PAPER: 1,
-    SCISSORS: 2
+    choices: {
+        ROCK: 0,
+        PAPER: 1,
+        SCISSORS: 2
+    },
+
+    score: {
+        wins: 0,
+        losses: 0,
+        ties: 0
+    },
+
+    results: {
+        WIN: 1,
+        TIE: 0,
+        LOSS: -1
+    },
+
+    player: new Player(),
+
+    computer: new Player()
+
 }
-
-// Stores the score.
-var score = {
-    wins: 0,
-    losses: 0,
-    ties: 0
-};
 
 // Stores the player's choice, then call's the function for storing the computer's choice
-function storePlayerChoice(choice) {
-    playerChoice = choice;
-    console.log("My choice = " + choice);
-    storeComputerChoice();
-}
+storePlayerChoice: function (choice) {
+        this.player.choice = choice;
+        console.log("My choice = " + this.player.choice);
+        this.storeComputerChoice();
+    },
 
-// Generate computer's random choice
-function storeComputerChoice() {
-    computerChoice = Math.floor(Math.random()*3);
-    console.log("Computer choice = " + computerChoice);
-}
+    // Generate the computer's random choice
+    storeComputerChoice: function () {
+        this.computer.choice = Math.floor(Math.random() * 3);
+    }
 
 // This is the function for playing the game
-function playGame(){
+function playGame() {
     // Here is the game ruleset algorithm
-    if (playerChoice == computerChoice) {
+    if (player.choice == computer.choice) {
         // We have a tie!
         ++score.ties;
         displayGameResult("tie")
-    } else if (playerChoice == 0 && computerChoice == 2) {
+    } else if (player.choice == choices.ROCK && computer.choice == choices.SCISSORS) {
         // Rock beats scissors - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == 1 && computerChoice == 0) {
+    } else if (player.choice == choices.PAPER && computer.choice == choices.ROCK) {
         // Paper beats rock - a win!
         ++score.wins;
         displayGameResult("win")
-    } else if (playerChoice == 2 && computerChoice == 1) {
+    } else if (player.choice == choices.SCISSORS && computer.choice == choices.PAPER) {
         // Scissors beats paper - a win!
         ++score.wins;
         displayGameResult("win")
@@ -62,7 +69,7 @@ function playGame(){
 }
 
 //Displays the result of the game
-function displayGameResult(result){
+function displayGameResult(result) {
     // Define an array of text labels for the choices 0, 1, 2;
     // Create a message for the player
     var message = "Your choice was " + choices[playerChoice] + " and the computer's choice was " + choices[computerChoice] + ".";
@@ -85,7 +92,7 @@ function displayGameResult(result){
 }
 
 // Function for displaying the score
-function displayScoreBoard(winsId, lossesId, tiesId){
+function displayScoreBoard(winsId, lossesId, tiesId) {
     document.getElementById(winsId).textContent = score.wins;
     document.getElementById(lossesId).textContent = score.losses;
     document.getElementById(tiesId).textContent = score.ties;
