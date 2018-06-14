@@ -48,23 +48,23 @@ playGame: function () {
          console.log("win");
         ++Rochambeau.score.wins;
         Rochambeau.displayGameResult("win");
-} else if (Rochambeau.player.choice == Rochambeau.choices.SCISSORS && (Rochambeau.computer.choice == Rochambeau.choices.PAPER ||             Rochambeau.computer.choice == Rochambeau.choices.LIZARD)) {
+    } else if (Rochambeau.player.choice == Rochambeau.choices.SCISSORS && (Rochambeau.computer.choice == Rochambeau.choices.PAPER ||             Rochambeau.computer.choice == Rochambeau.choices.LIZARD)) {
          console.log("win");
         ++Rochambeau.score.wins;
         Rochambeau.displayGameResult("win");
- } else if (Rochambeau.player.choice == Rochambeau.choices.LIZARD && (Rochambeau.computer.choice == Rochambeau.choices.SPOCK ||              Rochambeau.computer.choice == Rochambeau.choices.PAPER)) {
+    } else if (Rochambeau.player.choice == Rochambeau.choices.LIZARD && (Rochambeau.computer.choice == Rochambeau.choices.SPOCK ||              Rochambeau.computer.choice == Rochambeau.choices.PAPER)) {
         console.log("win");
         ++Rochambeau.score.wins;
         Rochambeau.displayGameResult("win");
-} else if (Rochambeau.player.choice == Rochambeau.choices.SPOCK && (Rochambeau.computer.choice == Rochambeau.choices.SCISSORS ||             Rochambeau.computer.choice == Rochambeau.choices.ROCK)) {
+    } else if (Rochambeau.player.choice == Rochambeau.choices.SPOCK && (Rochambeau.computer.choice == Rochambeau.choices.SCISSORS ||             Rochambeau.computer.choice == Rochambeau.choices.ROCK)) {
         console.log("win");
         ++Rochambeau.score.wins;
         Rochambeau.displayGameResult("win");
-} else {
+    } else {
         console.log("lose");
         ++Rochambeau.score.losses;
         Rochambeau.displayGameResult("lose")
- }
+   }
 },
 
 //Displays the result of the game
@@ -74,26 +74,25 @@ displayGameResult: function (result) {
        } else if (Rochambeau.score.losses == 2) {
            var messagetwo = "You lost the match " + Rochambeau.score.wins + " - " + Rochambeau.score.losses + ".";
        } else {
-
-var messagetwo = "Your current best of three score is " + Rochambeau.score.wins + " - " + Rochambeau.score.losses + ".";
+           var messagetwo = "Your current best of three score is " + Rochambeau.score.wins + " - " + Rochambeau.score.losses + ".";
        }
+            var message = "Your choice was " + Rochambeau.choiceNames[Rochambeau.player.choice] + " and the computer's choice was " + Rochambeau.choiceNames[Rochambeau.computer.choice] + ".";
 
-var message = "Your choice was " + Rochambeau.choiceNames[Rochambeau.player.choice] + " and the computer's choice was " + Rochambeau.choiceNames[Rochambeau.computer.choice] + ".";
-       if (result == "win") {
+        if (result == "win") {
            document.getElementById("result").textContent = message + " YOU WIN! " + messagetwo;
            document.getElementById("result").className = "alert alert-success";
-       } else if (result == "lose") {
+    } else if (result == "lose") {
            document.getElementById("result").textContent = message + " YOU LOSE! " + messagetwo;
            document.getElementById("result").className = "alert alert-danger";
-       } else {
+    } else {
            document.getElementById("result").textContent = message + " A tie. " + messagetwo;
            document.getElementById("result").className = "alert alert-info";
-       }
+    }
         Rochambeau.updateScoreBoard();
         Rochambeau.updateMatchScore();
    },
 
-   updateMatchScore: function () {
+updateMatchScore: function () {
        if (Rochambeau.score.wins == 2) {
            ++Rochambeau.matchScore.wins;
            Rochambeau.score.wins = 0;
@@ -107,7 +106,7 @@ var message = "Your choice was " + Rochambeau.choiceNames[Rochambeau.player.choi
        }
    },
 
-   updateScoreBoard: function () {
+updateScoreBoard: function () {
        document.getElementById("wins").textContent = Rochambeau.score.wins;
        document.getElementById("losses").textContent = Rochambeau.score.losses;
        document.getElementById("ties").textContent = Rochambeau.score.ties;
