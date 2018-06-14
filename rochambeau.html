@@ -12,12 +12,14 @@
 
 <body>
     <div class="container">
-        <h1>Rock, Paper, Scissors Game</h1>
+        <h1>Rock, Paper, Scissors, lizard, spock Game</h1>
         <p>Let's Play Rock, Paper Scissors! Press your choice and then press PLAY!</p>
         <p>
             <button type="button" class="btn btn-default" id="rock">Rock</button>
             <button type="button" class="btn btn-default" id="paper">Paper</button>
             <button type="button" class="btn btn-default" id="scissors">Scissors</button>
+           <button type="button" class="btn btn-default" id="lizard">Lizard</button>
+           <button type="button" class="btn btn-default" id="spock">Spock</button>
         </p>
         <p></p>
         <input type="button" value="Play" class="btn btn-primary" id="play">
@@ -34,10 +36,24 @@
                     <td id="wins">0</td>
                     <td id="losses">0</td>
                     <td id="ties">0</td>
-                </tr>
-            </table>
-        </div>
-    </div>
+
+               </tr>
+           </table>
+       </div>
+       <div id="matchScoreboard">
+           <table class="table">
+               <tr>
+                   <td>Match Wins:</td>
+                   <td>Match Losses:</td>
+               </tr>
+               <tr>
+                   <td id="matchWins">0</td>
+                   <td id="matchLosses">0</td>
+               </tr>
+
+           </table>
+       </div>
+   </div>
 </body>
 <script src="rochambeau.js"></script>
 
