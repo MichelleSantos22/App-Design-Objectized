@@ -40,23 +40,23 @@ playGame: function () {
          console.log("tie");
         ++Rochambeau.score.ties;
         Rochambeau.displayGameResult("tie");
-    } else if (Rochambeau.player.choice == Rochambeau.choices.ROCK && (Rochambeau.computer.choice == Rochambeau.choices.SCISSORS ||        Rochambeau.computer.choice == Rochambeau.choices.LIZARD)) {
+    } else if (Rochambeau.player.choice == Rochambeau.choices.ROCK && (Rochambeau.computer.choice == Rochambeau.choices.SCISSORS || Rochambeau.computer.choice == Rochambeau.choices.LIZARD)) {
          console.log("win");
         ++Rochambeau.score.wins;
         Rochambeau.displayGameResult("win");
-    } else if (Rochambeau.player.choice == Rochambeau.choices.PAPER && (Rochambeau.computer.choice == Rochambeau.choices.ROCK ||          Rochambeau.computer.choice == Rochambeau.choices.SPOCK)) {
+    } else if (Rochambeau.player.choice == Rochambeau.choices.PAPER && (Rochambeau.computer.choice == Rochambeau.choices.ROCK || Rochambeau.computer.choice == Rochambeau.choices.SPOCK)) {
          console.log("win");
         ++Rochambeau.score.wins;
         Rochambeau.displayGameResult("win");
-    } else if (Rochambeau.player.choice == Rochambeau.choices.SCISSORS && (Rochambeau.computer.choice == Rochambeau.choices.PAPER ||             Rochambeau.computer.choice == Rochambeau.choices.LIZARD)) {
+    } else if (Rochambeau.player.choice == Rochambeau.choices.SCISSORS && (Rochambeau.computer.choice == Rochambeau.choices.PAPER || Rochambeau.computer.choice == Rochambeau.choices.LIZARD)) {
          console.log("win");
         ++Rochambeau.score.wins;
         Rochambeau.displayGameResult("win");
-    } else if (Rochambeau.player.choice == Rochambeau.choices.LIZARD && (Rochambeau.computer.choice == Rochambeau.choices.SPOCK ||              Rochambeau.computer.choice == Rochambeau.choices.PAPER)) {
+    } else if (Rochambeau.player.choice == Rochambeau.choices.LIZARD && (Rochambeau.computer.choice == Rochambeau.choices.SPOCK || Rochambeau.computer.choice == Rochambeau.choices.PAPER)) {
         console.log("win");
         ++Rochambeau.score.wins;
         Rochambeau.displayGameResult("win");
-    } else if (Rochambeau.player.choice == Rochambeau.choices.SPOCK && (Rochambeau.computer.choice == Rochambeau.choices.SCISSORS ||             Rochambeau.computer.choice == Rochambeau.choices.ROCK)) {
+    } else if (Rochambeau.player.choice == Rochambeau.choices.SPOCK && (Rochambeau.computer.choice == Rochambeau.choices.SCISSORS || Rochambeau.computer.choice == Rochambeau.choices.ROCK)) {
         console.log("win");
         ++Rochambeau.score.wins;
         Rochambeau.displayGameResult("win");
@@ -76,7 +76,7 @@ displayGameResult: function (result) {
        } else {
            var messagetwo = "Your current best of three score is " + Rochambeau.score.wins + " - " + Rochambeau.score.losses + ".";
        }
-            var message = "Your choice was " + Rochambeau.choiceNames[Rochambeau.player.choice] + " and the computer's choice was " + Rochambeau.choiceNames[Rochambeau.computer.choice] + ".";
+           var message = "Your choice was " + Rochambeau.choiceNames[Rochambeau.player.choice] + " and the computer's choice was " + Rochambeau.choiceNames[Rochambeau.computer.choice] + ".";
 
         if (result == "win") {
            document.getElementById("result").textContent = message + " YOU WIN! " + messagetwo;
